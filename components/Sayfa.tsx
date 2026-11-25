@@ -1,4 +1,4 @@
-import { ICERIK, type Dil } from "@/lib/icerik";
+import { DILLER, ICERIK, type Dil } from "@/lib/icerik";
 import { YazdirDugmesi } from "@/components/YazdirDugmesi";
 import { TemaDugmesi } from "@/components/TemaDugmesi";
 import { AsagiIkonu, GithubIkonu, LinkedinIkonu, OkIkonu } from "@/components/Ikonlar";
@@ -9,7 +9,11 @@ function Etiket({ metin }: { metin: string }) {
 
 export function Sayfa({ dil }: { dil: Dil }) {
   const i = ICERIK[dil];
-  const digerKod = dil === "tr" ? "en" : "tr";
+  const digerDiller = DILLER.filter((d) => d.kod !== dil);
+  const navEtiket = { tr: "Sayfa içi", en: "On this page", ja: "ページ内" }[dil];
+  const altEtiket = { tr: "Alt bağlantılar", en: "Footer links", ja: "フッターのリンク" }[dil];
+  const kaydirEtiket = { tr: "Aşağı kaydır", en: "Scroll down", ja: "下にスクロール" }[dil];
+  const dilEtiket = { tr: "Dil", en: "Language", ja: "言語" }[dil];
   return (
     <>
       <header className="ust">
@@ -18,7 +22,7 @@ export function Sayfa({ dil }: { dil: Dil }) {
             <span className="marka-isaret" aria-hidden="true" />
             {i.marka}
           </a>
-          <nav className="ust-nav" aria-label={dil === "tr" ? "Sayfa içi" : "On this page"}>
+          <nav className="ust-nav" aria-label={navEtiket}>
             <a href="#hakkimda">{i.nav.hakkimda}</a>
             <a href="#projeler">{i.nav.projeler}</a>
             <a href="#beceriler">{i.nav.beceriler}</a>
@@ -26,14 +30,23 @@ export function Sayfa({ dil }: { dil: Dil }) {
             <a href="#iletisim">{i.nav.iletisim}</a>
           </nav>
           <div className="ust-sag">
-            <span className="dil-secici" aria-label={dil === "tr" ? "Dil" : "Language"}>
-              <span className="dil-aktif">{dil.toUpperCase()}</span>
-              <span className="dil-ayrac" aria-hidden="true">
-                /
-              </span>
-              <a href={i.digerDil.url} lang={digerKod} hrefLang={digerKod}>
-                {i.digerDil.metin}
-              </a>
+            <span className="dil-secici" aria-label={dilEtiket}>
+              {DILLER.map((d, n) => (
+                <span key={d.kod}>
+                  {n > 0 && (
+                    <span className="dil-ayrac" aria-hidden="true">
+                      /
+                    </span>
+                  )}
+                  {d.kod === dil ? (
+                    <span className="dil-aktif">{d.kisa}</span>
+                  ) : (
+                    <a href={d.url} lang={d.kod} hrefLang={d.kod}>
+                      {d.kisa}
+                    </a>
+                  )}
+                </span>
+              ))}
             </span>
             <TemaDugmesi etiket={i.tema} />
             <YazdirDugmesi metin={i.cv} sinif="dugme kucuk" />
@@ -83,7 +96,7 @@ export function Sayfa({ dil }: { dil: Dil }) {
               ))}
             </p>
           </div>
-          <a className="asagi" href="#hakkimda" aria-label={dil === "tr" ? "Aşağı kaydır" : "Scroll down"}>
+          <a className="asagi" href="#hakkimda" aria-label={kaydirEtiket}>
             <AsagiIkonu />
           </a>
         </section>
@@ -201,7 +214,7 @@ export function Sayfa({ dil }: { dil: Dil }) {
             <h2 id="deneyim-baslik">{i.deneyim.baslik}</h2>
             <ol className="zaman">
               {i.deneyim.liste.map((d) => (
-                <li className="zaman-oge" key={d.sirket}>
+                <li className="zaman-oge" key={d.donem}>
                   <div className="zaman-ust">
                     <div>
                       <h3>{d.unvan}</h3>
@@ -273,16 +286,18 @@ export function Sayfa({ dil }: { dil: Dil }) {
       <footer className="alt">
         <div className="ic alt-ic">
           <p>{i.altbilgi}</p>
-          <nav className="alt-nav" aria-label={dil === "tr" ? "Alt bağlantılar" : "Footer links"}>
+          <nav className="alt-nav" aria-label={altEtiket}>
             <a href={BAG.github} rel="me noopener" aria-label="GitHub">
               <GithubIkonu />
             </a>
             <a href={BAG.linkedin} rel="me noopener" aria-label="LinkedIn">
               <LinkedinIkonu />
             </a>
-            <a href={i.digerDil.url} lang={digerKod} hrefLang={digerKod}>
-              {dil === "tr" ? "English" : "Türkçe"}
-            </a>
+            {digerDiller.map((d) => (
+              <a key={d.kod} href={d.url} lang={d.kod} hrefLang={d.kod}>
+                {d.ad}
+              </a>
+            ))}
           </nav>
         </div>
       </footer>

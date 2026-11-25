@@ -1,5 +1,11 @@
 // Site içeriği. Tek gerçek kaynak: E:\is-bulucu\profil.md ile aynı bilgiler; burada olmayan beceri, unvan, rakam yok.
-export type Dil = "tr" | "en";
+export type Dil = "tr" | "en" | "ja";
+
+export const DILLER: { kod: Dil; kisa: string; ad: string; url: string }[] = [
+  { kod: "tr", kisa: "TR", ad: "Türkçe", url: "/" },
+  { kod: "en", kisa: "EN", ad: "English", url: "/en" },
+  { kod: "ja", kisa: "JA", ad: "日本語", url: "/ja" },
+];
 
 export interface Baglanti {
   metin: string;
@@ -25,7 +31,6 @@ export interface Deneyim {
 
 export interface Icerik {
   dil: Dil;
-  digerDil: Baglanti;
   ad: string;
   marka: string;
   rol: string;
@@ -66,7 +71,6 @@ export const BAGLANTILAR = {
 
 const TR: Icerik = {
   dil: "tr",
-  digerDil: { metin: "EN", url: "/en" },
   ad: "Ahmet Can Yürekli",
   marka: "a.yürekli",
   rol: "Full Stack Developer",
@@ -84,7 +88,7 @@ const TR: Icerik = {
     etiket: "Hakkımda",
     baslik: "Canlı sistem kuran, ürünü uçtan uca sahiplenen geliştirici",
     paragraflar: [
-      "Edusama'da öğrenci konaklama ve kiralama yönetim sistemi (personel paneli ve öğrenci portalı) geliştiriyorum; sistem canlıda kullanılıyor. Aynı ekipte Japonya pazarlama sitesi ve admin CMS'i ile LMS portalı üzerinde çalışıyorum.",
+      "Şu an eğitim ve öğrenci konaklama alanında çalışan bir şirkette konaklama ve kiralama yönetim sistemi (personel paneli ve öğrenci portalı) geliştiriyorum; sistem canlıda kullanılıyor. Aynı ekipte Japonya pazarlama sitesi ve admin CMS'i ile LMS portalı üzerinde çalışıyorum.",
       "Canlı sistemde sıfır kesintili veri göçü (expand ve contract), KVKK uyumu ve güvenlik (IDOR, RLS, rate limit, pentest listesi) konularında uygulama deneyimim var. Tasarım özetlerini CEO'ya sunuyor, ürün yöneticisiyle birlikte çalışıyorum.",
       "Tercihim uçtan uca tip güvenliği (TypeScript, tRPC, Zod, Prisma), testle korunan değişiklik (Vitest, Playwright) ve PR akışıyla yayın. Ürün üç dilde (tr, en, ja) çalışır.",
     ],
@@ -163,7 +167,7 @@ const TR: Icerik = {
     liste: [
       {
         unvan: "Full Stack Developer",
-        sirket: "Edusama",
+        sirket: "Eğitim ve öğrenci konaklama şirketi, İstanbul",
         donem: "Nis 2026 - Şu an",
         maddeler: [
           "Öğrenci konaklama ve kiralama yönetim sistemi (personel paneli ve öğrenci portalı), canlıda kullanılıyor.",
@@ -175,7 +179,7 @@ const TR: Icerik = {
       },
       {
         unvan: "Full Stack Engineer",
-        sirket: "Yukatech",
+        sirket: "Yazılım şirketi",
         donem: "Oca 2022 - Eyl 2023",
         maddeler: ["Web uygulamaları geliştirdim; React ile arayüz çalışmaları."],
         etiketler: ["React", "Web"],
@@ -209,7 +213,6 @@ const TR: Icerik = {
 
 const EN: Icerik = {
   dil: "en",
-  digerDil: { metin: "TR", url: "/" },
   ad: "Ahmet Can Yürekli",
   marka: "a.yürekli",
   rol: "Full Stack Developer",
@@ -227,7 +230,7 @@ const EN: Icerik = {
     etiket: "About",
     baslik: "A developer who ships live systems and owns the product end to end",
     paragraflar: [
-      "At Edusama I build a student housing and rental management system (staff panel and student portal) that is in production. On the same team I work on the Japan marketing site with its admin CMS and on an LMS portal.",
+      "At a company in education and student housing I build a housing and rental management system (staff panel and student portal) that is in production. On the same team I work on the Japan marketing site with its admin CMS and on an LMS portal.",
       "I have hands-on experience with zero-downtime data migration on a live system (expand and contract), KVKK compliance and security work: IDOR, RLS, rate limiting and a pentest checklist. I present design summaries to the CEO and work with the product manager.",
       "I prefer end-to-end type safety (TypeScript, tRPC, Zod, Prisma), changes protected by tests (Vitest, Playwright) and releases through a PR workflow. The product runs in three languages (tr, en, ja).",
     ],
@@ -306,7 +309,7 @@ const EN: Icerik = {
     liste: [
       {
         unvan: "Full Stack Developer",
-        sirket: "Edusama",
+        sirket: "Education and student housing company, Istanbul",
         donem: "Apr 2026 - Present",
         maddeler: [
           "Student housing and rental management system (staff panel and student portal), in production.",
@@ -318,7 +321,7 @@ const EN: Icerik = {
       },
       {
         unvan: "Full Stack Engineer",
-        sirket: "Yukatech",
+        sirket: "Software company",
         donem: "Jan 2022 - Sep 2023",
         maddeler: ["Built web applications; frontend work with React."],
         etiketler: ["React", "Web"],
@@ -350,4 +353,146 @@ const EN: Icerik = {
   altbilgi: "© 2026 Ahmet Can Yürekli",
 };
 
-export const ICERIK: Record<Dil, Icerik> = { tr: TR, en: EN };
+const JA: Icerik = {
+  dil: "ja",
+  ad: "Ahmet Can Yürekli",
+  marka: "a.yürekli",
+  rol: "Full Stack Developer",
+  nav: { hakkimda: "自己紹介", projeler: "実績", beceriler: "スキル", deneyim: "経歴", iletisim: "連絡" },
+  tema: { acik: "ライトテーマに切り替え", koyu: "ダークテーマに切り替え" },
+  cv: "履歴書を保存",
+  ustYazi: "プロダクトを設計から本番運用まで一貫して担うエンジニア。",
+  odaklar: ["Next.js と TypeScript", "PostgreSQL と Supabase", "本番環境での安全な変更"],
+  giris:
+    "Next.js、TypeScript、PostgreSQL で本番稼働するシステムを開発しています。設計サマリーからデータ移行、セキュリティレビュー、リリースまで、プロダクト全体を担当します。約2.5年の実務経験を活かし、ミドルレベルのポジションを探しています。",
+  eylemler: { iletisim: "連絡する", projeler: "実績を見る" },
+  stackEtiket: "スタック",
+  stack: ["Next.js", "TypeScript", "React", "PostgreSQL", "Supabase", "Prisma", "Docker"],
+  hakkimda: {
+    etiket: "自己紹介",
+    baslik: "本番システムを作り、プロダクトを一貫して担うエンジニア",
+    paragraflar: [
+      "現在、教育・学生住居分野の企業で、住居・賃貸管理システム（スタッフ用管理画面と学生ポータル）を開発しており、本番稼働中です。同じチームで日本市場向けマーケティングサイトと管理CMS、LMSポータルも担当しています。",
+      "本番環境での無停止データ移行（expand and contract）、KVKK（トルコ個人情報保護法）対応、セキュリティ（IDOR、RLS、レート制限、ペンテストチェックリスト）の実務経験があります。設計サマリーをCEOに提案し、プロダクトマネージャーと協働しています。",
+      "エンドツーエンドの型安全（TypeScript、tRPC、Zod、Prisma）、テストで守られた変更（Vitest、Playwright）、PRフローでのリリースを重視します。プロダクトは3言語（トルコ語、英語、日本語）で動作します。",
+    ],
+    sayilar: [
+      { deger: "2.5+", aciklama: "年の実務経験" },
+      { deger: "3", aciklama: "本番稼働中のプロダクトライン" },
+      { deger: "3", aciklama: "言語：トルコ語、英語、日本語" },
+    ],
+    odakBaslik: "注力分野",
+    odakListe: ["Webアプリケーション（Next.js、App Router）", "データ層とAPI（PostgreSQL、Prisma、tRPC）", "本番環境でのデータ移行", "セキュリティとKVKK対応", "テストとリリースフロー（Vitest、Playwright、GitHub Actions）", "多言語プロダクト（tr、en、ja）"],
+  },
+  projeler: {
+    etiket: "実績",
+    baslik: "主な実績",
+    altyazi: "業務で開発したプロダクトのケース概要です。顧客情報や社内情報は含めず、何をどのように作ったかのみ記載しています。",
+    liste: [
+      {
+        kategori: ["プロダクト", "フルスタック"],
+        ad: "住居・賃貸管理システム",
+        aciklama: "学生向け住居・賃貸業務のためのスタッフ用管理画面と学生ポータル。本番稼働中。設計サマリーをCEOに提案し、プロダクトマネージャーとスコープを管理しました。",
+        maddeler: [
+          "スタッフ用管理画面と学生ポータル、ロールベースのアクセス制御。",
+          "TypeScript、tRPC、Zod、Prisma、PostgreSQL によるエンドツーエンドの型安全なデータフロー。",
+          "Vitest と Playwright のテスト、PRフローでのリリース。",
+        ],
+        etiketler: ["Next.js", "TypeScript", "tRPC", "Prisma", "PostgreSQL", "Auth.js"],
+        durum: "本番稼働中",
+      },
+      {
+        kategori: ["本番システム", "データ"],
+        ad: "無停止データ移行",
+        aciklama: "稼働中のシステムでスキーマ変更をユーザーに影響を与えずに実施。手法は expand and contract：まず拡張し、データを移行・検証してから縮小します。",
+        etiketler: ["PostgreSQL", "Prisma", "Expand and contract", "ロールバック可能な手順"],
+        durum: "本番環境で実施",
+      },
+      {
+        kategori: ["セキュリティ", "コンプライアンス"],
+        ad: "セキュリティ強化とKVKK対応",
+        aciklama: "個人データを扱うプロダクトでのアクセス制御とコンプライアンス対応：IDORレビュー、行レベルアクセス制御（RLS）、レート制限、ペンテストチェックリスト。個人データのKVKK対応。",
+        etiketler: ["IDOR", "RLS", "レート制限", "KVKK", "ペンテストチェックリスト"],
+        durum: "継続中",
+      },
+      {
+        kategori: ["Webサイト", "CMS"],
+        ad: "多言語マーケティングサイトと管理CMS",
+        aciklama: "日本市場向けのマーケティングサイトとコンテンツ管理画面。コンテンツは3言語（tr、en、ja）で管理しています。",
+        etiketler: ["Next.js", "next-intl", "Vercel", "Supabase"],
+        durum: "マーケティングサイト",
+      },
+      {
+        kategori: ["教育", "ポータル"],
+        ad: "LMSポータル",
+        aciklama: "学生向けの学習管理ポータル。同じデザインシステムとデータ層の上に構築しています。",
+        etiketler: ["Next.js", "TypeScript", "SCSSデザインシステム"],
+        durum: "プロダクトライン",
+      },
+    ],
+  },
+  beceriler: {
+    etiket: "スキル",
+    baslik: "ツールボックス",
+    altyazi: "実際に使っている技術を用途別に整理しています。",
+    gruplar: [
+      { ad: "言語とフレームワーク", ogeler: ["TypeScript", "JavaScript", "Rust", "Python", "Next.js (App Router)", "React 19", "Node.js"] },
+      { ad: "バックエンドとデータ", ogeler: ["Express", "tRPC", "Zod", "Prisma", "PostgreSQL (Supabase)", "SQLite", "Auth.js", "axum", "tokio", "sqlx"] },
+      { ad: "フロントエンド", ogeler: ["SCSSデザインシステム", "CSS Modules", "Tailwind", "React Hook Form", "TanStack Query", "next-intl", "three.js", "GSAP"] },
+      { ad: "テストとワークフロー", ogeler: ["Vitest", "Playwright", "Maestro", "GitHub Actions", "PRフロー"] },
+      { ad: "インフラ", ogeler: ["Docker", "Coolify", "Cloudflare Tunnel", "Vercel", "Render", "Supabase"] },
+      { ad: "デスクトップ・モバイル・AI", ogeler: ["Electron", "Expo", "React Native", "Ollama", "Claude Agent SDK"] },
+      { ad: "ドメイン知識", ogeler: ["無停止データ移行", "KVKK対応", "IDORレビュー", "RLS", "レート制限", "ペンテストチェックリスト", "多言語プロダクト"], vurgu: true },
+    ],
+  },
+  deneyim: {
+    etiket: "経歴",
+    baslik: "職務経歴",
+    liste: [
+      {
+        unvan: "Full Stack Developer",
+        sirket: "教育・学生住居分野の企業（イスタンブール）",
+        donem: "2026年4月 - 現在",
+        maddeler: [
+          "学生向け住居・賃貸管理システム（スタッフ用管理画面と学生ポータル）を開発、本番稼働中。",
+          "日本市場向けマーケティングサイトと管理CMS（Vercel、Supabase）。LMSポータルも担当。",
+          "本番環境での無停止データ移行（expand and contract）、KVKK対応、セキュリティ対応：IDOR、RLS、レート制限、ペンテストチェックリスト。",
+          "設計サマリーをCEOに提案し、プロダクトマネージャーと協働。",
+        ],
+        etiketler: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "Vercel", "KVKK"],
+      },
+      {
+        unvan: "Full Stack Engineer",
+        sirket: "ソフトウェア企業",
+        donem: "2022年1月 - 2023年9月",
+        maddeler: ["Webアプリケーションを開発。React によるフロントエンド実装。"],
+        etiketler: ["React", "Web"],
+      },
+    ],
+    egitimBaslik: "学歴",
+    egitim: [
+      "アナドル大学 コンピュータプログラミング（短期大学士、2024 - 2026）",
+      "42 Istanbul Piscine（2025）",
+      "BTK Akademi React、JavaScript、HTML5、CSS 修了証（2023）",
+      "アナドル大学 国際関係学（学士、在学中）",
+    ],
+  },
+  iletisim: {
+    etiket: "連絡",
+    baslik: "お話ししましょう",
+    metin:
+      "ミドルレベルのフルスタックまたはフロントエンドのポジションを探しています。トルコ国内のオフィス勤務、ハイブリッド、リモート、またはトルコから勤務できる海外のリモート職も歓迎です。本番システム、セキュリティ、プロダクトオーナーシップを重視する環境であれば、ぜひご連絡ください。",
+    kartlar: [
+      { ad: "LinkedIn", deger: "linkedin.com/in/canyrkl", url: BAGLANTILAR.linkedin, tur: "linkedin" },
+      { ad: "GitHub", deger: "github.com/Ayrkl", url: BAGLANTILAR.github, tur: "github" },
+    ],
+    bilgi: [
+      { etiket: "所在地", deger: "イスタンブール、トルコ（UTC+3）" },
+      { etiket: "開始時期", deger: "合理的な引き継ぎ期間の後" },
+      { etiket: "言語", deger: "トルコ語（母語）、英語（ビジネス文書レベル）、日本語（初級）" },
+    ],
+  },
+  altbilgi: "© 2026 Ahmet Can Yürekli",
+};
+
+export const ICERIK: Record<Dil, Icerik> = { tr: TR, en: EN, ja: JA };

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Ahmet Can Yürekli, Full Stack Developer",
   description:
     "İstanbul'da full stack geliştirici. Next.js, TypeScript ve PostgreSQL ile canlı sistemler; kişisel projelerde Rust. Mid-level rol arıyorum.",
-  alternates: { canonical: "/", languages: { tr: "/", en: "/en" } },
+  alternates: { canonical: "/", languages: { tr: "/", en: "/en", ja: "/ja" } },
   openGraph: {
     title: "Ahmet Can Yürekli, Full Stack Developer",
     description: "Next.js, TypeScript ve PostgreSQL ile canlı sistemler; kişisel projelerde Rust.",
