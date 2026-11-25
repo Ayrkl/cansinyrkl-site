@@ -29,7 +29,7 @@ export default function Image() {
           <div style={{ fontSize: 24, color: "#f0894f" }}>Ürünü uçtan uca kuran, canlı sistemi sahiplenen geliştirici.</div>
           <div style={{ fontSize: 92, fontWeight: 700, lineHeight: 1, letterSpacing: -3 }}>Ahmet Can Yürekli</div>
           <div style={{ fontSize: 40, color: "#b3bcc7" }}>Full Stack Developer</div>
-          <div style={{ fontSize: 26, color: "#7fb0ea", marginTop: 6 }}>Next.js ve TypeScript / Rust ile araçlar / Canlı sistemlerde güvenli değişiklik</div>
+          <div style={{ fontSize: 26, color: "#7fb0ea", marginTop: 6 }}>Next.js ve TypeScript / PostgreSQL ve Supabase / Canlı sistemlerde güvenli değişiklik</div>
         </div>
       </div>
     ),
