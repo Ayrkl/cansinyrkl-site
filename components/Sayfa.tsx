@@ -1,7 +1,9 @@
 import { ICERIK, type Dil } from "@/lib/icerik";
+import { YazdirDugmesi } from "@/components/YazdirDugmesi";
 
 export function Sayfa({ dil }: { dil: Dil }) {
   const i = ICERIK[dil];
+  const digerKod = dil === "tr" ? "en" : "tr";
   return (
     <div className="sayfa">
       <header className="ust">
@@ -15,7 +17,7 @@ export function Sayfa({ dil }: { dil: Dil }) {
           <a href="#projeler">{i.nav.projeler}</a>
           <a href="#deneyim">{i.nav.deneyim}</a>
           <a href="#iletisim">{i.nav.iletisim}</a>
-          <a className="dil-degistir" href={i.digerDil.url} lang={dil === "tr" ? "en" : "tr"} hrefLang={dil === "tr" ? "en" : "tr"}>
+          <a className="dil-degistir" href={i.digerDil.url} lang={digerKod} hrefLang={digerKod}>
             {i.digerDil.metin}
           </a>
         </nav>
@@ -23,26 +25,57 @@ export function Sayfa({ dil }: { dil: Dil }) {
 
       <main>
         <section className="giris">
-          <h1>{i.baslik}</h1>
-          <p className="giris-metin">{i.giris}</p>
-          <div className="simdi">
-            <span className="simdi-etiket">{dil === "tr" ? "Şu an" : "Now"}</span>
-            <p>{i.simdi}</p>
+          <div className="giris-sol">
+            <h1>{i.baslik}</h1>
+            <p className="giris-metin">{i.giris}</p>
+            <div className="simdi">
+              <span className="simdi-etiket">{i.simdiEtiket}</span>
+              <p>{i.simdi}</p>
+            </div>
+            <div className="eylemler">
+              <a className="dugme birincil" href="#projeler">
+                {i.eylemler.projeler}
+              </a>
+              <a className="dugme" href="#iletisim">
+                {i.eylemler.iletisim}
+              </a>
+              <YazdirDugmesi metin={i.eylemler.yazdir} />
+            </div>
           </div>
-          <div className="eylemler">
-            <a className="dugme birincil" href="#projeler">
-              {i.eylemler.projeler}
-            </a>
-            <a className="dugme" href="#iletisim">
-              {i.eylemler.iletisim}
-            </a>
-          </div>
+          <aside className="kunye" aria-labelledby="kunye-baslik">
+            <h2 id="kunye-baslik">{i.kunyeBaslik}</h2>
+            <dl>
+              {i.kunye.map((k) => (
+                <div key={k.etiket}>
+                  <dt>{k.etiket}</dt>
+                  <dd>{k.deger}</dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         </section>
 
         <section className="bolum" id="projeler" aria-labelledby="projeler-baslik">
           <h2 id="projeler-baslik">{i.nav.projeler}</h2>
           <div>
             <p className="bolum-aciklama">{i.projelerAciklama}</p>
+            <article className="one-cikan">
+              <p className="one-cikan-etiket">{i.oneCikanEtiket}</p>
+              <div className="one-cikan-ust">
+                <h3>
+                  <span className={`isaret ${i.oneCikan.renk}`} aria-hidden="true" />
+                  {i.oneCikan.ad}
+                </h3>
+                <span className="proje-tur">{i.oneCikan.tur}</span>
+              </div>
+              <p>{i.oneCikan.aciklama}</p>
+              <ul>
+                {i.oneCikan.maddeler.map((m) => (
+                  <li key={m}>{m}</li>
+                ))}
+              </ul>
+              <p className="proje-yigin">{i.oneCikan.yigin}</p>
+            </article>
             <ul className="projeler">
               {i.projeler.map((p) => (
                 <li className="proje" key={p.ad}>
@@ -84,11 +117,20 @@ export function Sayfa({ dil }: { dil: Dil }) {
           </div>
         </section>
 
+        <section className="bolum" aria-labelledby="calisma-baslik">
+          <h2 id="calisma-baslik">{i.calismaBaslik}</h2>
+          <ol className="calisma">
+            {i.calisma.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ol>
+        </section>
+
         <section className="bolum" aria-labelledby="yigin-baslik">
           <h2 id="yigin-baslik">{i.yiginBaslik}</h2>
           <dl className="yigin">
             {i.yigin.map((g) => (
-              <div key={g.grup} style={{ display: "contents" }}>
+              <div key={g.grup}>
                 <dt>{g.grup}</dt>
                 <dd>{g.ogeler}</dd>
               </div>
@@ -128,7 +170,7 @@ export function Sayfa({ dil }: { dil: Dil }) {
             <p>{i.iletisimMetin}</p>
             <div className="baglantilar">
               {i.baglantilar.map((b) => (
-                <a key={b.url} href={b.url} rel="me noopener">
+                <a key={b.url} className="dugme" href={b.url} rel="me noopener">
                   {b.metin}
                 </a>
               ))}
@@ -139,7 +181,16 @@ export function Sayfa({ dil }: { dil: Dil }) {
 
       <footer className="alt">
         <p>{i.altbilgi}</p>
-        <p>{i.ad}</p>
+        <nav aria-label={dil === "tr" ? "Alt bağlantılar" : "Footer links"}>
+          {i.baglantilar.map((b) => (
+            <a key={b.url} href={b.url} rel="me noopener">
+              {b.metin}
+            </a>
+          ))}
+          <a href={i.digerDil.url} lang={digerKod} hrefLang={digerKod}>
+            {i.digerDil.metin}
+          </a>
+        </nav>
       </footer>
     </div>
   );

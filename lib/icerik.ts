@@ -17,6 +17,10 @@ export interface Proje {
   baglanti?: Baglanti;
 }
 
+export interface OneCikan extends Proje {
+  maddeler: string[];
+}
+
 export interface Deneyim {
   sirket: string;
   unvan: string;
@@ -32,11 +36,18 @@ export interface Icerik {
   nav: { projeler: string; deneyim: string; iletisim: string };
   baslik: string;
   giris: string;
+  simdiEtiket: string;
   simdi: string;
-  eylemler: { projeler: string; iletisim: string };
+  eylemler: { projeler: string; iletisim: string; yazdir: string };
+  kunyeBaslik: string;
+  kunye: { etiket: string; deger: string }[];
   projelerAciklama: string;
+  oneCikanEtiket: string;
+  oneCikan: OneCikan;
   projeler: Proje[];
   deneyim: Deneyim[];
+  calismaBaslik: string;
+  calisma: string[];
   yiginBaslik: string;
   yigin: { grup: string; ogeler: string }[];
   egitimBaslik: string;
@@ -59,21 +70,36 @@ const TR: Icerik = {
   ad: "Ahmet Can Yürekli",
   rol: "Full stack geliştirici",
   nav: { projeler: "Projeler", deneyim: "Deneyim", iletisim: "İletişim" },
-  baslik: "Ürünü uçtan uca kuran full stack geliştirici.",
+  baslik: "Ürünü uçtan uca kuran full\u00a0stack geliştirici.",
   giris:
-    "İstanbul'da yaşıyorum. Next.js, TypeScript ve PostgreSQL ile canlıda kullanılan sistemler geliştiriyorum; kişisel projelerde Rust kullanıyorum. Yaklaşık 2,5 yıllık profesyonel deneyimle mid-level bir rol arıyorum: Türkiye'de ofis, hibrit ya da uzaktan; Türkiye'den çalışılabilen yurt dışı uzaktan roller de olur.",
-  simdi: "Şu an açık API'lerden iş ilanı toplayıp CV'ye göre puanlayan yerel bir aracı Rust ile yazıyorum.",
-  eylemler: { projeler: "Projelere bak", iletisim: "Bana ulaş" },
+    "Next.js, TypeScript ve PostgreSQL ile canlıda kullanılan sistemler geliştiriyorum; kişisel projelerde Rust kullanıyorum. Yaklaşık 2,5 yıllık profesyonel deneyimle mid-level bir rol arıyorum.",
+  simdiEtiket: "Şu an",
+  simdi: "Açık API'lerden iş ilanı toplayıp CV'ye göre puanlayan yerel bir aracı Rust ile yazıyorum.",
+  eylemler: { projeler: "Projelere bak", iletisim: "Bana ulaş", yazdir: "CV olarak yazdır" },
+  kunyeBaslik: "Künye",
+  kunye: [
+    { etiket: "Konum", deger: "İstanbul, Türkiye (UTC+3)" },
+    { etiket: "Aradığım rol", deger: "Mid-level full stack ya da frontend" },
+    { etiket: "Çalışma şekli", deger: "Ofis, hibrit ya da uzaktan; Türkiye'den çalışılabilen yurt dışı uzaktan roller de olur" },
+    { etiket: "Başlangıç", deger: "Makul bir geçiş süresiyle" },
+    { etiket: "Diller", deger: "Türkçe, İngilizce (yazılı iş seviyesi), Japonca (başlangıç)" },
+  ],
   projelerAciklama:
     "Kendi zamanımda yaptığım işler. Renk, ana dili gösterir: turuncu Rust, mavi TypeScript ve React, gri diğerleri.",
+  oneCikanEtiket: "Öne çıkan",
+  oneCikan: {
+    ad: "İş Bulucu",
+    aciklama: "İş ilanlarını herkese açık API ve RSS kaynaklarından toplayıp CV'ye göre puanlayan, başvuruları takip eden yerel araç.",
+    maddeler: [
+      "25 herkese açık kaynağı tarar; hiçbir siteyi kazımaz, başvuruyu her zaman kullanıcı gönderir.",
+      "İlanı kural tabanlı puanlar; dil şartı, maaş ve beceri uyumunu ayrı ayrı çıkarır.",
+      "Yerel LLM (Ollama) ya da Claude ile ön yazı, değerlendirme ve mülakat hazırlığı üretir.",
+    ],
+    yigin: "Rust (axum, tokio), SQLite, Ollama, tek dosya arayüz",
+    tur: "Kişisel araç, geliştirme sürüyor",
+    renk: "rust",
+  },
   projeler: [
-    {
-      ad: "İş Bulucu",
-      aciklama: "İş ilanlarını açık API ve RSS kaynaklarından toplayıp CV'ye göre puanlayan, başvuruları takip eden yerel araç.",
-      yigin: "Rust (axum, tokio), SQLite, Ollama",
-      tur: "Kişisel araç",
-      renk: "rust",
-    },
     {
       ad: "BDO Market",
       aciklama: "Oyun pazarı için kârlı üretim planını bulan servis ve web arayüzü.",
@@ -136,6 +162,12 @@ const TR: Icerik = {
       maddeler: ["Web uygulamaları, React."],
     },
   ],
+  calismaBaslik: "Çalışma biçimim",
+  calisma: [
+    "Ürünü uçtan uca düşünürüm: tasarım özetini sunar, ürün yöneticisiyle kapsamı netleştirir, sonra kodlarım.",
+    "Canlı sistemde değişikliği güvenli yaparım: expand ve contract ile kesintisiz veri göçü, Vitest ve Playwright testleri, PR akışı.",
+    "Güvenliği baştan planlarım: IDOR denetimi, satır düzeyi erişim (RLS), rate limit, KVKK uyumu, pentest listesi.",
+  ],
   yiginBaslik: "Araç kutusu",
   yigin: [
     {
@@ -163,7 +195,7 @@ const TR: Icerik = {
     { metin: "GitHub", url: BAGLANTILAR.github },
     { metin: "LinkedIn", url: BAGLANTILAR.linkedin },
   ],
-  altbilgi: "Next.js ile yapıldı, Vercel'de yayında.",
+  altbilgi: "© 2026 Ahmet Can Yürekli",
 };
 
 const EN: Icerik = {
@@ -172,21 +204,36 @@ const EN: Icerik = {
   ad: "Ahmet Can Yürekli",
   rol: "Full stack developer",
   nav: { projeler: "Projects", deneyim: "Experience", iletisim: "Contact" },
-  baslik: "Full stack developer who builds the product end to end.",
+  baslik: "Full\u00a0stack developer who builds the product end\u00a0to\u00a0end.",
   giris:
-    "I live in Istanbul. I build systems that are in production with Next.js, TypeScript and PostgreSQL, and I use Rust for personal projects. With about 2.5 years of professional experience I am looking for a mid-level role: on-site, hybrid or remote in Turkey, or a remote role abroad that can be done from Turkey.",
-  simdi: "Right now I am writing a local tool in Rust that collects job posts from open APIs and scores them against my CV.",
-  eylemler: { projeler: "See the projects", iletisim: "Get in touch" },
+    "I build systems that are in production with Next.js, TypeScript and PostgreSQL, and I use Rust for personal projects. With about 2.5 years of professional experience I am looking for a mid-level role.",
+  simdiEtiket: "Now",
+  simdi: "Writing a local tool in Rust that collects job posts from open APIs and scores them against my CV.",
+  eylemler: { projeler: "See the projects", iletisim: "Get in touch", yazdir: "Print as CV" },
+  kunyeBaslik: "At a glance",
+  kunye: [
+    { etiket: "Location", deger: "Istanbul, Turkey (UTC+3)" },
+    { etiket: "Looking for", deger: "Mid-level full stack or frontend role" },
+    { etiket: "Work setup", deger: "On-site, hybrid or remote in Turkey, or a remote role abroad that can be done from Turkey" },
+    { etiket: "Start", deger: "With a reasonable notice period" },
+    { etiket: "Languages", deger: "Turkish, English (professional in writing), Japanese (beginner)" },
+  ],
   projelerAciklama:
     "Things I built on my own time. The colour marks the main language: orange is Rust, blue is TypeScript and React, grey is everything else.",
+  oneCikanEtiket: "Featured",
+  oneCikan: {
+    ad: "İş Bulucu (Job Finder)",
+    aciklama: "Local tool that collects job posts from public APIs and RSS feeds, scores them against a CV and tracks applications.",
+    maddeler: [
+      "Scans 25 public sources; scrapes no site, and the user always sends the application.",
+      "Scores each post with rules; extracts language requirements, salary and skill match separately.",
+      "Drafts cover letters, evaluations and interview prep with a local LLM (Ollama) or Claude.",
+    ],
+    yigin: "Rust (axum, tokio), SQLite, Ollama, single-file UI",
+    tur: "Personal tool, in progress",
+    renk: "rust",
+  },
   projeler: [
-    {
-      ad: "İş Bulucu (Job Finder)",
-      aciklama: "Local tool that collects job posts from open APIs and RSS feeds, scores them against a CV and tracks applications.",
-      yigin: "Rust (axum, tokio), SQLite, Ollama",
-      tur: "Personal tool",
-      renk: "rust",
-    },
     {
       ad: "BDO Market",
       aciklama: "Service and web UI that finds the most profitable crafting plan for a game marketplace.",
@@ -249,6 +296,12 @@ const EN: Icerik = {
       maddeler: ["Web applications, React."],
     },
   ],
+  calismaBaslik: "How I work",
+  calisma: [
+    "I think about the product end to end: present the design summary, settle the scope with the product manager, then build.",
+    "I change live systems safely: zero-downtime migrations with expand and contract, Vitest and Playwright tests, a PR workflow.",
+    "I plan security up front: IDOR checks, row-level access (RLS), rate limiting, KVKK compliance, a pentest checklist.",
+  ],
   yiginBaslik: "Toolbox",
   yigin: [
     {
@@ -276,7 +329,7 @@ const EN: Icerik = {
     { metin: "GitHub", url: BAGLANTILAR.github },
     { metin: "LinkedIn", url: BAGLANTILAR.linkedin },
   ],
-  altbilgi: "Built with Next.js, hosted on Vercel.",
+  altbilgi: "© 2026 Ahmet Can Yürekli",
 };
 
 export const ICERIK: Record<Dil, Icerik> = { tr: TR, en: EN };

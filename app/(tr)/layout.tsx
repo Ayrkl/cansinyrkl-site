@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function KokYerlesim({ children }: { children: React.ReactNode }) {

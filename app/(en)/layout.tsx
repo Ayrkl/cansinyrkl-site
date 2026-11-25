@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
