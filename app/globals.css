@@ -398,54 +398,6 @@ h3 {
 }
 
 /* iletişim */
-.form {
-  display: grid;
-  gap: 1rem;
-  max-width: 34rem;
-}
-
-.form label {
-  display: grid;
-  gap: 0.35rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.form input,
-.form textarea {
-  font: inherit;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid var(--cizgi);
-  border-radius: 4px;
-  background: var(--kagit);
-  color: var(--murekkep);
-  width: 100%;
-}
-
-.form textarea {
-  min-height: 9rem;
-  resize: vertical;
-}
-
-.form-durum {
-  margin: 0;
-  padding: 0.75rem 0.9rem;
-  border-left: 3px solid var(--ts);
-  background: var(--kagit-koyu);
-}
-
-.form-durum.hata {
-  border-left-color: var(--rust);
-}
-
-.tuzak {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .baglantilar {
   display: flex;
   gap: 1.25rem;

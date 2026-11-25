@@ -44,15 +44,6 @@ export interface Icerik {
   dillerBaslik: string;
   diller: string[];
   iletisimMetin: string;
-  form: {
-    ad: string;
-    eposta: string;
-    mesaj: string;
-    gonder: string;
-    gonderiliyor: string;
-    basarili: string;
-    hatalar: Record<string, string>;
-  };
   baglantilar: Baglanti[];
   altbilgi: string;
 }
@@ -72,7 +63,7 @@ const TR: Icerik = {
   giris:
     "İstanbul'da yaşıyorum. Next.js, TypeScript ve PostgreSQL ile canlıda kullanılan sistemler geliştiriyorum; kişisel projelerde Rust kullanıyorum. Yaklaşık 2,5 yıllık profesyonel deneyimle mid-level bir rol arıyorum: Türkiye'de ofis, hibrit ya da uzaktan; Türkiye'den çalışılabilen yurt dışı uzaktan roller de olur.",
   simdi: "Şu an açık API'lerden iş ilanı toplayıp CV'ye göre puanlayan yerel bir aracı Rust ile yazıyorum.",
-  eylemler: { projeler: "Projelere bak", iletisim: "Mesaj gönder" },
+  eylemler: { projeler: "Projelere bak", iletisim: "Bana ulaş" },
   projelerAciklama:
     "Kendi zamanımda yaptığım işler. Renk, ana dili gösterir: turuncu Rust, mavi TypeScript ve React, gri diğerleri.",
   projeler: [
@@ -167,22 +158,7 @@ const TR: Icerik = {
   dillerBaslik: "Diller",
   diller: ["Türkçe: ana dil", "İngilizce: yazılı iş seviyesi", "Japonca: başlangıç, öğreniyorum"],
   iletisimMetin:
-    "Bir rol, bir proje ya da sadece bir soru için yazabilirsiniz. Mesaj doğrudan e-postama düşer; yazdığınız adrese dönüş yaparım.",
-  form: {
-    ad: "Adınız",
-    eposta: "E-posta adresiniz",
-    mesaj: "Mesajınız",
-    gonder: "Mesajı gönder",
-    gonderiliyor: "Gönderiliyor",
-    basarili: "Mesaj ulaştı. Yazdığınız adrese dönüş yapacağım.",
-    hatalar: {
-      eksik: "Ad, e-posta ve mesaj gerekli.",
-      gecersiz: "E-posta adresi geçerli görünmüyor.",
-      cok_sik: "Çok sık denendi. Birkaç dakika sonra yeniden deneyin.",
-      ayarsiz: "Form henüz etkin değil. Şimdilik GitHub ya da LinkedIn üzerinden ulaşabilirsiniz.",
-      gonderilemedi: "Mesaj gönderilemedi. Lütfen daha sonra yeniden deneyin.",
-    },
-  },
+    "Bir rol, bir proje ya da sadece bir soru için yazabilirsiniz. GitHub ya da LinkedIn üzerinden ulaşın; mesajlara kendim dönüyorum.",
   baglantilar: [
     { metin: "GitHub", url: BAGLANTILAR.github },
     { metin: "LinkedIn", url: BAGLANTILAR.linkedin },
@@ -200,7 +176,7 @@ const EN: Icerik = {
   giris:
     "I live in Istanbul. I build systems that are in production with Next.js, TypeScript and PostgreSQL, and I use Rust for personal projects. With about 2.5 years of professional experience I am looking for a mid-level role: on-site, hybrid or remote in Turkey, or a remote role abroad that can be done from Turkey.",
   simdi: "Right now I am writing a local tool in Rust that collects job posts from open APIs and scores them against my CV.",
-  eylemler: { projeler: "See the projects", iletisim: "Send a message" },
+  eylemler: { projeler: "See the projects", iletisim: "Get in touch" },
   projelerAciklama:
     "Things I built on my own time. The colour marks the main language: orange is Rust, blue is TypeScript and React, grey is everything else.",
   projeler: [
@@ -295,22 +271,7 @@ const EN: Icerik = {
   dillerBaslik: "Languages",
   diller: ["Turkish: native", "English: professional in writing", "Japanese: beginner, learning"],
   iletisimMetin:
-    "Write about a role, a project or just a question. The message lands in my inbox and I reply to the address you give.",
-  form: {
-    ad: "Your name",
-    eposta: "Your email",
-    mesaj: "Your message",
-    gonder: "Send the message",
-    gonderiliyor: "Sending",
-    basarili: "Got it. I will reply to the address you gave.",
-    hatalar: {
-      eksik: "Name, email and message are required.",
-      gecersiz: "That email address does not look valid.",
-      cok_sik: "Too many attempts. Try again in a few minutes.",
-      ayarsiz: "The form is not active yet. For now, reach me on GitHub or LinkedIn.",
-      gonderilemedi: "The message could not be sent. Please try again later.",
-    },
-  },
+    "Write about a role, a project or just a question. Reach me on GitHub or LinkedIn; I answer messages myself.",
   baglantilar: [
     { metin: "GitHub", url: BAGLANTILAR.github },
     { metin: "LinkedIn", url: BAGLANTILAR.linkedin },

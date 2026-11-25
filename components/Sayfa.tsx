@@ -1,5 +1,4 @@
 import { ICERIK, type Dil } from "@/lib/icerik";
-import { IletisimFormu } from "@/components/IletisimFormu";
 
 export function Sayfa({ dil }: { dil: Dil }) {
   const i = ICERIK[dil];
@@ -127,7 +126,6 @@ export function Sayfa({ dil }: { dil: Dil }) {
           <h2 id="iletisim-baslik">{i.nav.iletisim}</h2>
           <div>
             <p>{i.iletisimMetin}</p>
-            <IletisimFormu form={i.form} />
             <div className="baglantilar">
               {i.baglantilar.map((b) => (
                 <a key={b.url} href={b.url} rel="me noopener">
