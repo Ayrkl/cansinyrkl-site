@@ -178,6 +178,19 @@ const TR: Icerik = {
         etiketler: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "Vercel", "KVKK"],
       },
       {
+        unvan: "Bağımsız geliştirici",
+        sirket: "Serbest müşteri işleri ve kendi ürünlerim",
+        donem: "Eyl 2023 - Nis 2026",
+        maddeler: [
+          "Müşteri işi: küçük bir işletme için rol tabanlı stok takip sistemi (React, Express, SQLite, JWT).",
+          "Müşteri işi: dekorasyon firması için ürün katalog sitesi (HTML, JavaScript).",
+          "Kendi ürünüm: oyun pazarı için kârlı üretim planını bulan servis ve web arayüzü; Docker ile Coolify üzerinde canlı (Rust, axum, SQLite).",
+          "Kendi ürünüm: Premiere Pro için sessizlik kesme, altyazı ve transkript eklentisi (Adobe CEP, whisper).",
+          "Aynı dönemde Anadolu Üniversitesi Bilgisayar Programcılığı ve 42 İstanbul Piscine (2025).",
+        ],
+        etiketler: ["React", "Express", "SQLite", "Rust", "Docker", "Adobe CEP"],
+      },
+      {
         unvan: "Full Stack Engineer",
         sirket: "Yazılım şirketi",
         donem: "Oca 2022 - Eyl 2023",
@@ -320,6 +333,19 @@ const EN: Icerik = {
         etiketler: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "Vercel", "KVKK"],
       },
       {
+        unvan: "Independent developer",
+        sirket: "Freelance client work and own products",
+        donem: "Sep 2023 - Apr 2026",
+        maddeler: [
+          "Client work: role-based inventory system for a small business (React, Express, SQLite, JWT).",
+          "Client work: product catalogue website for a decoration company (HTML, JavaScript).",
+          "Own product: service and web UI that finds the most profitable crafting plan for a game marketplace; live on Coolify with Docker (Rust, axum, SQLite).",
+          "Own product: Premiere Pro extension for silence cutting, subtitles and transcripts (Adobe CEP, whisper).",
+          "In the same period: Anadolu University Computer Programming and 42 Istanbul Piscine (2025).",
+        ],
+        etiketler: ["React", "Express", "SQLite", "Rust", "Docker", "Adobe CEP"],
+      },
+      {
         unvan: "Full Stack Engineer",
         sirket: "Software company",
         donem: "Jan 2022 - Sep 2023",
@@ -460,6 +486,19 @@ const JA: Icerik = {
           "設計サマリーをCEOに提案し、プロダクトマネージャーと協働。",
         ],
         etiketler: ["Next.js", "TypeScript", "PostgreSQL", "Supabase", "Vercel", "KVKK"],
+      },
+      {
+        unvan: "独立開発者",
+        sirket: "フリーランスの受託開発と自社プロダクト",
+        donem: "2023年9月 - 2026年4月",
+        maddeler: [
+          "受託開発：小規模事業者向けのロールベース在庫管理システム（React、Express、SQLite、JWT）。",
+          "受託開発：インテリア企業向けの製品カタログサイト（HTML、JavaScript）。",
+          "自社プロダクト：ゲーム内マーケット向けに最も収益性の高い生産計画を算出するサービスとWeb UI。Docker で Coolify 上に本番稼働（Rust、axum、SQLite）。",
+          "自社プロダクト：Premiere Pro 向けの無音カット・字幕・文字起こし拡張機能（Adobe CEP、whisper）。",
+          "同期間にアナドル大学コンピュータプログラミング、42 Istanbul Piscine（2025）。",
+        ],
+        etiketler: ["React", "Express", "SQLite", "Rust", "Docker", "Adobe CEP"],
       },
       {
         unvan: "Full Stack Engineer",
