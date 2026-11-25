@@ -90,9 +90,8 @@ const TR: Icerik = {
     ],
     sayilar: [
       { deger: "2,5+", aciklama: "yıl profesyonel deneyim" },
-      { deger: "3", aciklama: "ürün: kiralama yönetimi, pazarlama sitesi ve CMS, LMS portalı" },
-      { deger: "0", aciklama: "kesinti: canlı sistemde veri göçü" },
-      { deger: "3", aciklama: "ürün dili: Türkçe, İngilizce, Japonca" },
+      { deger: "3", aciklama: "canlı ürün hattı" },
+      { deger: "3", aciklama: "dil: Türkçe, İngilizce, Japonca" },
     ],
     odakBaslik: "Odak alanları",
     odakListe: ["Web uygulamaları (Next.js, App Router)", "Veri katmanı ve API (PostgreSQL, Prisma, tRPC)", "Canlı sistemde veri göçü", "Güvenlik ve KVKK uyumu", "Test ve yayın akışı (Vitest, Playwright, GitHub Actions)", "Çok dilli ürün (tr, en, ja)"],
@@ -234,9 +233,8 @@ const EN: Icerik = {
     ],
     sayilar: [
       { deger: "2.5+", aciklama: "years of professional experience" },
-      { deger: "3", aciklama: "products: rental management, marketing site and CMS, LMS portal" },
-      { deger: "0", aciklama: "downtime: data migration on a live system" },
-      { deger: "3", aciklama: "product languages: Turkish, English, Japanese" },
+      { deger: "3", aciklama: "product lines in production" },
+      { deger: "3", aciklama: "languages: Turkish, English, Japanese" },
     ],
     odakBaslik: "Focus areas",
     odakListe: ["Web applications (Next.js, App Router)", "Data layer and API (PostgreSQL, Prisma, tRPC)", "Data migration on live systems", "Security and KVKK compliance", "Testing and release flow (Vitest, Playwright, GitHub Actions)", "Multilingual products (tr, en, ja)"],
